@@ -1,0 +1,21 @@
+---
+# Path where the code is going to be deployed to
+ajgarlag_deploy_path: "{{ ansible_env.HOME }}/project"
+
+# GIT repository
+# ajgarlag_deploy_update_git_repo: git@github.com:USERNAME/REPO.git
+
+# GIT commit to deploy
+ajgarlag_deploy_update_git_commit: master
+
+# If true, it will cache the remote repository for faster deployments
+ajgarlag_deploy_update_git_cache: yes
+
+# Shared paths to symlink
+ajgarlag_deploy_symlink_shared: []
+
+# If true, it will force the creation of shared paths symlinks
+ajgarlag_deploy_symlink_forced: no
+
+# Number of releases to keep in your hosts, if 0, unlimited releases will be kept
+ajgarlag_cleanup_keep: 5

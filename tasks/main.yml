@@ -1,0 +1,51 @@
+---
+- name: 1. SETUP STEP
+  debug:
+    msg: Starting 'Setup' step
+
+- name: Executing 'Before Setup' Tasks
+  include: "{{ ajgarlag_before_setup_tasks_file | default('empty.yml') }}"
+
+- include: setup.yml
+
+- name: Executing 'After Setup' Tasks
+  include: "{{ ajgarlag_after_setup_tasks_file | default('empty.yml') }}"
+
+
+- name: 2. UPDATE STEP
+  debug:
+    msg: Starting 'Update' step
+
+- name: Executing 'Before Update' Tasks
+  include: "{{ ajgarlag_before_update_tasks_file | default('empty.yml') }}"
+
+- include: update.yml
+
+- name: Executing 'After Update' Tasks
+  include: "{{ ajgarlag_after_update_tasks_file | default('empty.yml') }}"
+
+
+- name: 3. SYMLINK STEP
+  debug:
+    msg: Starting 'Symlink' step
+
+- name: Executing 'Before Symlink' Tasks
+  include: "{{ ajgarlag_before_symlink_tasks_file | default('empty.yml') }}"
+
+- include: symlink.yml
+
+- name: Executing 'After Symlink' Tasks
+  include: "{{ ajgarlag_after_symlink_tasks_file | default('empty.yml') }}"
+
+
+- name: 4. CLEAN UP STEP
+  debug:
+    msg: Starting 'Clean Up' step
+
+- name: Executing 'Before Clean Up' Tasks
+  include: "{{ ajgarlag_before_cleanup_tasks_file | default('empty.yml') }}"
+
+- include: cleanup.yml
+
+- name: Executing 'After Clean Up' Tasks
+  include: "{{ ajgarlag_after_cleanup_tasks_file | default('empty.yml') }}"

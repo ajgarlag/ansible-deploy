@@ -1,0 +1,25 @@
+---
+- name: Computing release timestamp
+  shell: date -u  +%Y%m%d%H%M%SZ
+  register: ajgarlag_deploy_timestamp
+  delegate_to: 127.0.0.1
+  when: ajgarlag_deploy_version is not defined
+
+- name: Registering release version
+  set_fact:
+    ajgarlag_deploy_version: "{{ ajgarlag_deploy_timestamp.stdout }}"
+  when: ajgarlag_deploy_version is not defined
+
+- name: Registering release directories
+  set_fact:
+    ajgarlag_deploy_path_release: "{{ ajgarlag_deploy_path }}/releases/{{ ajgarlag_deploy_version }}"
+    ajgarlag_deploy_path_shared: "{{ ajgarlag_deploy_path }}/shared"
+
+- name: Creating deployment directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: yes
+  with_items:
+    - "{{ ajgarlag_deploy_path_release }}"
+    - "{{ ajgarlag_deploy_path_shared }}"

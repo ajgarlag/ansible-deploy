@@ -1,0 +1,17 @@
+---
+- name: Symlinking shared paths
+  file:
+    src: "{{ ajgarlag_deploy_path_shared }}/{{ item }}"
+    dest: "{{ ajgarlag_deploy_path_release }}/{{ item }}"
+    state: link
+    force: "{{ ajgarlag_deploy_symlink_forced }}"
+  with_items: ajgarlag_deploy_symlink_shared
+
+- name: Symlinking release
+  file:
+    src: "{{ ajgarlag_deploy_path_release }}"
+    dest: "{{ ajgarlag_deploy_path }}/current"
+    state: link
+
+- debug:
+    msg: Deployment complete

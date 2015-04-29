@@ -1,0 +1,4 @@
+---
+- name: Cleaning up old releases
+  shell: ls -1dt {{ ajgarlag_deploy_path }}/releases/* | tail -n +$(({{ ajgarlag_cleanup_keep }} + 1)) | xargs rm -rf
+  when: ajgarlag_cleanup_keep > 0
