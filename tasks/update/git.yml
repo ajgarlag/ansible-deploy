@@ -6,14 +6,14 @@
 - name: Cloning remote GIT repository to cache
   git:
     repo: "{{ ajgarlag_deploy_update_git_repo }}"
-    dest: "{{ ajgarlag_deploy_path_shared }}/.repository.git"
+    dest: "{{ ajgarlag_deploy_path }}/repo"
     accept_hostkey: true
     bare: yes
   when: ajgarlag_deploy_update_git_cache
 
 - name: Cloning cached GIT repository to release path
   git:
-    repo: "{{ ajgarlag_deploy_path_shared }}/.repository.git"
+    repo: "{{ ajgarlag_deploy_path }}/repo"
     dest: "{{ ajgarlag_deploy_path_release }}"
     version: "{{ ajgarlag_deploy_update_git_commit }}"
   when: ajgarlag_deploy_update_git_cache
