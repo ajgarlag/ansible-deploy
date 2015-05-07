@@ -1,0 +1,27 @@
+---
+- name: ARTIFACT - Checking location
+  set_fact:
+    ajgarlag_deploy_update_artifact_destination: /tmp/{{ ajgarlag_deploy_update_artifact_location | basename }}
+
+- name: ARTIFACT - Downloading from remote URL
+  get_url:
+    url: "{{ ajgarlag_deploy_update_artifact_location }}"
+    dest: "{{ ajgarlag_deploy_update_artifact_destination }}"
+  when: not ajgarlag_deploy_update_artifact_location | match("^/.*")
+
+- name: ARTIFACT - Copying from local path
+  copy:
+    src: "{{ ajgarlag_deploy_update_artifact_location }}"
+    dest: "{{ ajgarlag_deploy_update_artifact_destination }}"
+  when: ajgarlag_deploy_update_artifact_location | match("^/.*")
+
+- name: ARTIFACT - Unarchiving code
+  unarchive:
+    src: "{{ ajgarlag_deploy_update_artifact_destination }}"
+    dest: "{{ ajgarlag_deploy_path_release }}"
+    copy: no
+
+- name: ARTIFACT - Removing artifact
+  file:
+    path: "{{ ajgarlag_deploy_update_artifact_destination }}"
+    state: absent

@@ -1,2 +1,10 @@
 ---
+- name: Select update strategy
+  debug:
+    msg: "{{ ajgarlag_deploy_update_strategy }}"
+
 - include: update/git.yml
+  when: ajgarlag_deploy_update_strategy == 'git'
+
+- include: update/artifact.yml
+  when: ajgarlag_deploy_update_strategy == 'artifact'

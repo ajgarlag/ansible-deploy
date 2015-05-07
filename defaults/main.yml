@@ -2,7 +2,10 @@
 # Path where the code is going to be deployed to
 ajgarlag_deploy_path: "{{ ansible_env.HOME }}/project"
 
-# GIT repository
+# Strategy to update code on hosts
+ajgarlag_deploy_update_strategy: git
+
+# GIT repository (required if the update strategy is git)
 # ajgarlag_deploy_update_git_repo: git@github.com:USERNAME/REPO.git
 
 # GIT commit to deploy
@@ -10,6 +13,9 @@ ajgarlag_deploy_update_git_commit: master
 
 # If true, it will cache the remote repository for faster deployments
 ajgarlag_deploy_update_git_cache: yes
+
+# URL or absolute path where the artifact is located  (required if the update strategy is artifact)
+# ajgarlag_deploy_update_artifact_location
 
 # Shared paths to symlink
 ajgarlag_deploy_symlink_shared: []
