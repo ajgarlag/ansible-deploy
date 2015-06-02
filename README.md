@@ -16,6 +16,26 @@ Role Variables
 * **ajgarlag_deploy_symlink_forced**: Boolean flag to force the creation of symlinks for shared paths (defaults to `no`).
 * **ajgarlag_cleanup_keep**: Number of releases to keep in your hosts, if 0, unlimited releases will be kept (defaults to `5`).
 
+### Role hooks
+
+You can hook your own tasks files to the deployment process defining any of the following vars:
+
+* **ajgarlag_deploy_before_setup_tasks_file**
+* **ajgarlag_deploy_after_setup_tasks_file**
+* **ajgarlag_deploy_before_update_tasks_file**
+* **ajgarlag_deploy_after_update_tasks_file**
+* **ajgarlag_deploy_before_symlink_tasks_file**
+* **ajgarlag_deploy_after_symlink_tasks_file**
+* **ajgarlag_deploy_before_cleanup_tasks_file**
+* **ajgarlag_deploy_after_cleanup_tasks_file**
+
+To do it, you must define the desired var with the path to the tasks file:
+
+```yml
+ajgarlag_deploy_before_update_tasks_file: "{{ playbook_dir }}/tasks/before_update.yml"
+```
+
+
 Example Playbook
 ----------------
 
