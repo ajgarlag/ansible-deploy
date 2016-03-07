@@ -8,3 +8,6 @@
 
 - include: update/artifact.yml
   when: ajgarlag_deploy_update_strategy == 'artifact'
+
+- include: update/symlink.yml
+  when: ajgarlag_deploy_update_strategy == 'symlink'
