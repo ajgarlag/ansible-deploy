@@ -1,0 +1,24 @@
+---
+- name: SYMLINK - Checking path variable variable
+  assert:
+    that: ajgarlag_deploy_update_symlink_path is defined
+
+- name: SYMLINK - Registering release directory contents
+  command: ls -A {{ ajgarlag_deploy_path_release }}
+  register: rd_contents
+
+- name: SYMLINK - Checking that release directory is empty
+  fail:
+    msg: "The release directory is not empty."
+  when: rd_contents.stdout != ""
+
+- name: SYMLINK - Removing release directory
+  file:
+    path: "{{ ajgarlag_deploy_path_release }}"
+    state: absent
+
+- name: SYMLINK - Symlinking code path to release
+  file:
+    src: "{{ ajgarlag_deploy_update_symlink_path }}"
+    dest: "{{ ajgarlag_deploy_path_release }}"
+    state: link
