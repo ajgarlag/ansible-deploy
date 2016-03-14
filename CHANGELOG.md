@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-Unreleased
+0.4.0
 ----------
 
 * Split symlink shared step
