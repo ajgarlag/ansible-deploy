@@ -24,6 +24,8 @@ You can hook your own tasks files to the deployment process defining any of the 
 * **ajgarlag_deploy_after_setup_tasks_file**
 * **ajgarlag_deploy_before_update_tasks_file**
 * **ajgarlag_deploy_after_update_tasks_file**
+* **ajgarlag_deploy_before_symlink_shared_tasks_file**
+* **ajgarlag_deploy_after_symlink_shared_tasks_file**
 * **ajgarlag_deploy_before_symlink_tasks_file**
 * **ajgarlag_deploy_after_symlink_tasks_file**
 * **ajgarlag_deploy_before_cleanup_tasks_file**
