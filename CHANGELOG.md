@@ -1,8 +1,10 @@
 CHANGELOG
 =========
 
-master
+0.3.0
 ------
+
+* Add new `symlink` deploy strategy
 
 0.2.0
 -----
