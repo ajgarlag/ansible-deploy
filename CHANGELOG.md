@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+0.5.0
+----------
+
+* Compatibility with ansible 2.2
+
+
 0.4.0
 ----------
 

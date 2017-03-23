@@ -5,4 +5,4 @@
     dest: "{{ ajgarlag_deploy_path_release }}/{{ item }}"
     state: link
     force: "{{ ajgarlag_deploy_symlink_forced }}"
-  with_items: ajgarlag_deploy_symlink_shared
+  with_items: "{{ ajgarlag_deploy_symlink_shared }}"
