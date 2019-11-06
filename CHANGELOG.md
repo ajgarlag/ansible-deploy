@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+0.5.1
+----------
+
+* Support atomic symlink
+
+
 0.5.0
 ----------
 

@@ -1,9 +1,12 @@
 ---
-- name: Symlinking release
+- name: Prepare atomic symlink
   file:
     src: "{{ ajgarlag_deploy_path_release }}"
-    dest: "{{ ajgarlag_deploy_path }}/current"
+    dest: "{{ ajgarlag_deploy_path }}/releases/current"
     state: link
+
+- name: Symlinking release
+  command: "mv -T {{ ajgarlag_deploy_path }}/releases/current {{ ajgarlag_deploy_path }}/current"
 
 - debug:
     msg: Deployment complete
