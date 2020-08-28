@@ -19,7 +19,6 @@
   file:
     path: "{{ item }}"
     state: directory
-    recurse: yes
   with_items:
     - "{{ ajgarlag_deploy_path_release }}"
     - "{{ ajgarlag_deploy_path_shared }}"
