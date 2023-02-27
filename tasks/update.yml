@@ -3,11 +3,11 @@
   debug:
     msg: "{{ ajgarlag_deploy_update_strategy }}"
 
-- include: update/git.yml
+- include_tasks: update/git.yml
   when: ajgarlag_deploy_update_strategy == 'git'
 
-- include: update/artifact.yml
+- include_tasks: update/artifact.yml
   when: ajgarlag_deploy_update_strategy == 'artifact'
 
-- include: update/symlink.yml
+- include_tasks: update/symlink.yml
   when: ajgarlag_deploy_update_strategy == 'symlink'

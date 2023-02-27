@@ -3,7 +3,7 @@ galaxy_info:
   author: ajgarlag
   description: Ansible role to deploy applications heavily inspired by ansistrano
   license: MIT
-  min_ansible_version: 2.0
+  min_ansible_version: 2.4
   platforms:
   - name: EL
     versions:

@@ -4,12 +4,12 @@
     msg: Starting 'Setup' step
 
 - name: Executing 'Before Setup' Tasks
-  include: "{{ ajgarlag_deploy_before_setup_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_before_setup_tasks_file | default('empty.yml') }}"
 
-- include: setup.yml
+- include_tasks: setup.yml
 
 - name: Executing 'After Setup' Tasks
-  include: "{{ ajgarlag_deploy_after_setup_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_after_setup_tasks_file | default('empty.yml') }}"
 
 
 - name: 2. UPDATE STEP
@@ -17,12 +17,12 @@
     msg: Starting 'Update' step
 
 - name: Executing 'Before Update' Tasks
-  include: "{{ ajgarlag_deploy_before_update_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_before_update_tasks_file | default('empty.yml') }}"
 
-- include: update.yml
+- include_tasks: update.yml
 
 - name: Executing 'After Update' Tasks
-  include: "{{ ajgarlag_deploy_after_update_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_after_update_tasks_file | default('empty.yml') }}"
 
 
 - name: 3. SYMLINK SHARED STEP
@@ -30,12 +30,12 @@
     msg: Starting 'Symlink shared' step
 
 - name: Executing 'Before Symlink shared' Tasks
-  include: "{{ ajgarlag_deploy_before_symlink_shared_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_before_symlink_shared_tasks_file | default('empty.yml') }}"
 
-- include: symlink-shared.yml
+- include_tasks: symlink-shared.yml
 
 - name: Executing 'After Symlink shared' Tasks
-  include: "{{ ajgarlag_deploy_after_symlink_shared_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_after_symlink_shared_tasks_file | default('empty.yml') }}"
 
 
 - name: 4. SYMLINK STEP
@@ -43,12 +43,12 @@
     msg: Starting 'Symlink' step
 
 - name: Executing 'Before Symlink' Tasks
-  include: "{{ ajgarlag_deploy_before_symlink_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_before_symlink_tasks_file | default('empty.yml') }}"
 
-- include: symlink.yml
+- include_tasks: symlink.yml
 
 - name: Executing 'After Symlink' Tasks
-  include: "{{ ajgarlag_deploy_after_symlink_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_after_symlink_tasks_file | default('empty.yml') }}"
 
 
 - name: 5. CLEAN UP STEP
@@ -56,9 +56,9 @@
     msg: Starting 'Clean Up' step
 
 - name: Executing 'Before Clean Up' Tasks
-  include: "{{ ajgarlag_deploy_before_cleanup_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_before_cleanup_tasks_file | default('empty.yml') }}"
 
-- include: cleanup.yml
+- include_tasks: cleanup.yml
 
 - name: Executing 'After Clean Up' Tasks
-  include: "{{ ajgarlag_deploy_after_cleanup_tasks_file | default('empty.yml') }}"
+  include_tasks: "{{ ajgarlag_deploy_after_cleanup_tasks_file | default('empty.yml') }}"
